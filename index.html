@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ウエイトトレーニング記録フォーム</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        h1 {
+            color: #800020;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group select, .form-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            background-color: #555;
+            color: #fff;
+            border: 1px solid #800020;
+            -webkit-appearance: none; /* iOSデフォルトスタイルの解除 */
+        }
+        .table-container {
+            flex: 1;
+            overflow-y: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #444;
+        }
+        th, td {
+            border: 1px solid #800020;
+            padding: 4px;
+            text-align: center;
+            font-size: 12px;
+        }
+        th {
+            background-color: #800020;
+            color: #fff;
+        }
+        td {
+            background-color: #555;
+        }
+        td input {
+            width: 100%;
+            padding: 4px;
+            box-sizing: border-box;
+            background-color: #333;
+            color: #fff;
+            border: 1px solid #800020;
+            font-size: 12px;
+            -webkit-appearance: none; /* iOSデフォルトスタイルの解除 */
+        }
+        .button-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+        button {
+            background-color: #800020;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            -webkit-appearance: none; /* iOSデフォルトスタイルの解除 */
+        }
+        button:hover {
+            background-color: #a83232;
+        }
+        @media (max-width: 600px) {
+            table, thead, tbody, th, td, tr {
+                display: block;
+                width: 100%;
+            }
+            thead tr {
+                display: none;
+            }
+            td {
+                text-align: right;
+                padding-left: 50%;
+                position: relative;
+            }
+            td:before {
+                content: attr(data-label);
+                position: absolute;
+                left: 0;
+                width: 50%;
+                padding-left: 15px;
+                font-weight: bold;
+                text-align: left;
+                background-color: #800020;
+                color: #fff;
+            }
+            td input {
+                margin-top: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>ウエイトトレーニング記録フォーム</h1>
+　　<div class="form-group">
+        <label for="name">名前を選択してください</label>
+        <select id="name">
+            <option value="025001. 上路 達也 TATSUYA UEJI">025001. 上路 達也 TATSUYA UEJI</option>
+            <option value="025002. 榎本 拓海 TAKUMI ENOMOTO">025002. 榎本 拓海 TAKUMI ENOMOTO</option>
+            <option value="025003. 沢木 優介 YUSUKE SAWAKI">025003. 沢木 優介 YUSUKE SAWAKI</option>
+            <option value="025004. 谷口 俊之輔 SHUNNOSUKE TANIGUCHI">025004. 谷口 俊之輔 SHUNNOSUKE TANIGUCHI</option>
+            <option value="025005. 柘植 充 MITSURU TSUGE">025005. 柘植 充 MITSURU TSUGE</option>
+            <option value="025006. 遠矢 陸人 RIKUTO TOYA">025006. 遠矢 陸人 RIKUTO TOYA</option>
+            <option value="025007. 中舛 蒼士 SOUSHI NAKAMASU">025007. 中舛 蒼士 SOUSHI NAKAMASU</option>
+            <option value="025008. 松並 大智 DAICHI MATSUNAMI">025008. 松並 大智 DAICHI MATSUNAMI</option>
+            <option value="025009. 丸山 渓太 KEITA MARUYAMA">025009. 丸山 渓太 KEITA MARUYAMA</option>
+            <option value="026001. 岡山 凜之 RINSHI OKAYAMA">026001. 岡山 凜之 RINSHI OKAYAMA</option>
+            <option value="026002. 亀田 純一郎 JUNICHIROU KAMEDA">026002. 亀田 純一郎 JUNICHIROU KAMEDA</option>
+            <option value="026003. 小山 知起 TOMOKI KOYAMA">026003. 小山 知起 TOMOKI KOYAMA</option>
+            <option value="026004. 齋藤智規 TOMOKI SAITOU">026004. 齋藤智規 TOMOKI SAITOU</option>
+            <option value="026005. 沢目 真直 MASANAO SAWAME">026005. 沢目 真直 MASANAO SAWAME</option>
+            <option value="026006. 原田 燿輔 YOUSUKE HARADA">026006. 原田 燿輔 YOUSUKE HARADA</option>
+            <option value="026007. 滿園 脩吾 SYUGO MITSUZONO">026007. 滿園 脩吾 SYUGO MITSUZONO</option>
+            <option value="026008. 東島 快 KAI HIGASHIJIMA">026008. 東島 快 KAI HIGASHIJIMA</option>
+            <option value="027001. 川上 拓海 TAKUMI KAWAKAMI">027001. 川上 拓海 TAKUMI KAWAKAMI</option>
+            <option value="027002. 佐藤 淳平 JUNPEI SATOU">027002. 佐藤 淳平 JUNPEI SATOU</option>
+            <option value="028001. 青山 純也 JUNYA AOYAMA">028001. 青山 純也 JUNYA AOYAMA</option>
+            <option value="028002. 岡部 秀磨 SYUMA OKABE">028002. 岡部 秀磨 SYUMA OKABE</option>
+            <option value="028003. 木下 真斗 MASATO KINOSHITA">028003. 木下 真斗 MASATO KINOSHITA</option>
+            <option value="028004. 熊野 悠希 YUKI KUMANO">028004. 熊野 悠希 YUKI KUMANO</option>
+            <option value="028005. 齋藤 素也 MOTOYA SAITOU">028005. 齋藤 素也 MOTOYA SAITOU</option>
+            <option value="028006. 白山 惺之 SATOSHI SHIRAYAMA">028006. 白山 惺之 SATOSHI SHIRAYAMA</option>
+            <option value="028007. 長崎 楓太 FUTA NAGASAKI">028007. 長崎 楓太 FUTA NAGASAKI</option>
+            <option value="028008. 平賀 俊丞 SHUNSUKE HIRAGA">028008. 平賀 俊丞 SHUNSUKE HIRAGA</option>
+            <option value="028009. 林田 颯月 SATSUKI HAYASHIDA">028009. 林田 颯月 SATSUKI HAYASHIDA</option>
+            <option value="028010. 宮澤 光樹 KOKI MIYAZAWA">028010. 宮澤 光樹 KOKI MIYAZAWA</option>
+            <option value="025101. 猪野 日向子 HINAKO INO">025101. 猪野 日向子 HINAKO INO</option>
+            <option value="025102. 片上 日菜子 HINAKO KATAKAMI">025102. 片上 日菜子 HINAKO KATAKAMI</option>
+            <option value="026101. 加藤 真奈 MANA KATOU">026101. 加藤 真奈 MANA KATOU</option>
+            <option value="026102. 村田友佳 TOMOKA MURATA">026102. 村田友佳 TOMOKA MURATA</option>
+            <option value="026103. 横田 紗弥 SAYA YOKOTA">026103. 横田 紗弥 SAYA YOKOTA</option>
+            <option value="026105. 吉田 紗英 SAE YOSHIDA">026105. 吉田 紗英 SAE YOSHIDA</option>
+            <option value="026106. 矢野 文愛 AYAME YANO">026106. 矢野 文愛 AYAME YANO</option>
+            <option value="027101. 緒方 美奈 MINA OGATA">027101. 緒方 美奈 MINA OGATA</option>
+            <option value="027102. 岡本 心奈 KOKONA OKAMOTO">027102. 岡本 心奈 KOKONA OKAMOTO</option>
+            <option value="027103. 小野 紗耶果 SAYAKA ONO">027103. 小野 紗耶果 SAYAKA ONO</option>
+            <option value="027104. 近藤 果凜 KARIN KONDO">027104. 近藤 果凜 KARIN KONDO</option>
+            <option value="027105. 藤倉 望妃 MIKI FUJIKURA">027105. 藤倉 望妃 MIKI FUJIKURA</option>
+            <option value="028101. 小野寺 紗耶 SAYA ONODERA">028101. 小野寺 紗耶 SAYA ONODERA</option>
+            <option value="028102. 山崎 鈴夏 SUZUKA YAMAZAKI">028102. 山崎 鈴夏 SUZUKA YAMAZAKI</option>
+            <option value="028103. 若林 はる帆 HARUHO WAKABAYASHI">028103. 若林 はる帆 HARUHO WAKABAYASHI</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="day">Dayを選択してください</label>
+        <select id="day" name="day" onchange="updateExercises()">
+            <option value="Day1">Day1</option>
+            <option value="Day2">Day2</option>
+            <option value="Day3">Day3</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="week">Weekを選択してください</label>
+        <select id="week" name="week">
+            <option value="Week1">Week1</option>
+            <option value="Week2">Week2</option>
+            <option value="Week3">Week3</option>
+            <option value="Week4">Week4</option>
+            <option value="Week5">Week5</option>
+            <option value="Week6">Week6</option>
+        </select>
+    </div>
+    <form id="trainingForm" action="https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec" method="post" style="display: flex; flex-direction: column; height: 100%;">
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>種目</th>
+                        <th>セット1</th>
+                        <th>セット2</th>
+                        <th>セット3</th>
+                        <th>セット4</th>
+                    </tr>
+                </thead>
+                <tbody id="exerciseTableBody">
+                    <!-- 種目ごとに行を作成 -->
+                </tbody>
+            </table>
+        </div>
+        <div class="button-container">
+            <button type="submit">送信</button>
+        </div>
+    </form>
+    <script>
+        const exerciseData = {
+            Day1: ["HPCL(Hang)", "腸腰筋ストレッチ", "Dead Lift", "DB Burgulian SQ", "Chinning", "DB 1Hand Bench Press", "In&Out", "Side Raise"],
+            Day2: ["HPCL(Floor)", "腸腰筋ストレッチ", "BSQ", "Bench Pull", "Captain's Chair Leg Raise", "Hyper Extension", "DB 1Hand Row", "Twist Sit Up"],
+            Day3: ["RDL", "Reverse Lunge", "Scissors Jump", "Chinning Narrow", "Push Up", "Ab Roller", "Upright Row", ""]
+        };
+
+        function updateExercises() {
+            const day = document.getElementById('day').value;
+            const exercises = exerciseData[day];
+            const tbody = document.getElementById('exerciseTableBody');
+            tbody.innerHTML = '';
+
+            exercises.forEach((exercise, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td data-label="種目">${exercise}</td>
+                    <td data-label="セット1"><input type="number" name="exercise${index + 1}_set1" placeholder="重量 (kg)" id="exercise${index + 1}set1"></td>
+                    <td data-label="セット2"><input type="number" name="exercise${index + 1}_set2" placeholder="重量 (kg)" id="exercise${index + 1}set2"></td>
+                    <td data-label="セット3"><input type="number" name="exercise${index + 1}_set3" placeholder="重量 (kg)" id="exercise${index + 1}set3"></td>
+                    <td data-label="セット4"><input type="number" name="exercise${index + 1}_set4" placeholder="重量 (kg)" id="exercise${index + 1}set4"></td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        updateExercises();
+    </script>
+</body>
+</html>
