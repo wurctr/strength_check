@@ -96,10 +96,18 @@
                 font-size: 10px;
             }
         }
+        .day-image {
+            width: 100%;
+            max-width: 300px;
+            margin: auto;
+            display: block;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
     <h1>ウエイトトレーニング記録フォーム</h1>
+    <img src="" alt="Day Image" id="dayImage" class="day-image">
 　　<div class="form-group">
         <label for="name">名前を選択してください</label>
         <select id="name" name="name">
@@ -185,10 +193,21 @@
             Day3: ["RDL", "Reverse Lunge", "Scissors Jump", "Chinning Narrow", "Push Up", "Ab Roller", "Upright Row", ""]
         };
 
+        const dayImages = {
+            Day1: "path_to_day1_image.jpg",
+            Day2: "path_to_day2_image.jpg",
+            Day3: "path_to_day3_image.jpg"
+        };
+
         function updateExercises() {
             const day = document.getElementById('day').value;
             const exercises = exerciseData[day];
+            const dayImage = dayImages[day];
             const tbody = document.getElementById('exerciseTableBody');
+            const imageElement = document.getElementById('dayImage');
+            
+            imageElement.src = dayImage;
+            
             tbody.innerHTML = '';
 
             exercises.forEach((exercise, index) => {
@@ -204,25 +223,26 @@
             });
         }
 
-    function handleSubmit(event) {
-        event.preventDefault();
-        const form = document.getElementById('trainingForm');
-        fetch(form.action, {
-            method: 'POST',
-            body: new FormData(form)
-        }).then(response => {
-            if (response.ok) {
-                window.location.href = "thankyou.html"; // 送信完了ページにリダイレクト
-            } else {
+        function handleSubmit(event) {
+            event.preventDefault();
+            const form = document.getElementById('trainingForm');
+            fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form)
+            }).then(response => {
+                if (response.ok) {
+                    window.location.href = "thankyou.html"; // 送信完了ページにリダイレクト
+                } else {
+                    alert('送信に失敗しました');
+                }
+            }).catch(error => {
+                console.error('Error:', error);
                 alert('送信に失敗しました');
-            }
-        }).catch(error => {
-            console.error('Error:', error);
-            alert('送信に失敗しました');
-        });
-    }
-</script>
+            });
+        }
 
+        updateExercises(); // 初期化
+    </script>
 </body>
 </html>
 
