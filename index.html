@@ -215,21 +215,26 @@
             });
         }
 
-        function handleSubmit(event) {
-            event.preventDefault();
-            const form = document.getElementById('trainingForm');
-            fetch(form.action, {
-                method: 'POST',
-                body: new FormData(form)
-            }).then(response => {
-                if (response.ok) {
-                    alert('送信完了');
-                    form.reset();
-                } else {
-                    alert('送信に失敗しました');
-                }
-            });
-        }
+<script>
+    function handleSubmit(event) {
+        event.preventDefault();
+        const form = document.getElementById('trainingForm');
+        fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form)
+        }).then(response => {
+            if (response.ok) {
+                window.location.href = "thankyou.html"; // 送信完了ページにリダイレクト
+            } else {
+                alert('送信に失敗しました');
+            }
+        }).catch(error => {
+            console.error('Error:', error);
+            alert('送信に失敗しました');
+        });
+    }
+</script>
+
 
         updateExercises();
     </script>
