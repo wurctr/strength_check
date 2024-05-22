@@ -202,10 +202,10 @@
                 const row = document.createElement('tr');
                 row.innerHTML = `
                     <td>${exercise}</td>
-                    <td><input type="number" placeholder="重量 (kg)" id="exercise${index + 1}set1"></td>
-                    <td><input type="number" placeholder="重量 (kg)" id="exercise${index + 1}set2"></td>
-                    <td><input type="number" placeholder="重量 (kg)" id="exercise${index + 1}set3"></td>
-                    <td><input type="number" placeholder="重量 (kg)" id="exercise${index + 1}set4"></td>
+                    <td><input type="number" name="exercise${index + 1}_set1" placeholder="重量 (kg)" id="exercise${index + 1}set1"></td>
+                    <td><input type="number" name="exercise${index + 1}_set2" placeholder="重量 (kg)" id="exercise${index + 1}set2"></td>
+                    <td><input type="number" name="exercise${index + 1}_set3" placeholder="重量 (kg)" id="exercise${index + 1}set3"></td>
+                    <td><input type="number" name="exercise${index + 1}_set4" placeholder="重量 (kg)" id="exercise${index + 1}set4"></td>
                 `;
                 tbody.appendChild(row);
             });
