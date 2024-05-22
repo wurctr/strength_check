@@ -61,14 +61,13 @@
         }
         td input {
             width: 100%;
-            padding: 2px; /* パディングを縮小 */
+            padding: 4px; /* パディングを縮小 */
             box-sizing: border-box;
             background-color: #fff;
             color: #333;
             border: 1px solid #800020;
             font-size: 12px; /* フォントサイズを調整 */
             -webkit-appearance: none;
-            -webkit-tap-highlight-color: rgba(0, 0, 0, 0); /* タップハイライトの除去 */
         }
         .button-container {
             margin-top: 20px;
@@ -87,20 +86,32 @@
         button:hover {
             background-color: #a83232;
         }
-        .illustration {
-            width: 100%;
-            max-width: 300px;
-            margin: auto;
-            display: block;
-        }
-        @media (max-width: 600px) {
-            th, td {
-                padding: 2px;
-                font-size: 10px;
+       @media (max-width: 600px) {
+            table, thead, tbody, th, td, tr {
+                display: block;
+                width: 100%;
+            }
+            thead tr {
+                display: none;
+            }
+            td {
+                text-align: right;
+                padding-left: 50%;
+                position: relative;
+            }
+            td:before {
+                content: attr(data-label);
+                position: absolute;
+                left: 0;
+                width: 50%;
+                padding-left: 15px;
+                font-weight: bold;
+                text-align: left;
+                background-color: #800020;
+                color: #fff;
             }
             td input {
-                padding: 2px;
-                font-size: 10px;
+                margin-top: 5px;
             }
         }
     </style>
@@ -201,15 +212,17 @@
             exercises.forEach((exercise, index) => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td>${exercise}</td>
-                    <td><input type="number" name="exercise${index + 1}_set1" placeholder="重量 (kg)" id="exercise${index + 1}set1"></td>
-                    <td><input type="number" name="exercise${index + 1}_set2" placeholder="重量 (kg)" id="exercise${index + 1}set2"></td>
-                    <td><input type="number" name="exercise${index + 1}_set3" placeholder="重量 (kg)" id="exercise${index + 1}set3"></td>
-                    <td><input type="number" name="exercise${index + 1}_set4" placeholder="重量 (kg)" id="exercise${index + 1}set4"></td>
+                    <td data-label="種目">${exercise}</td>
+                    <td data-label="セット1"><input type="number" name="exercise${index + 1}_set1" placeholder="重量 (kg)" id="exercise${index + 1}set1" inputmode="decimal"></td>
+                    <td data-label="セット2"><input type="number" name="exercise${index + 1}_set2" placeholder="重量 (kg)" id="exercise${index + 1}set2" inputmode="decimal"></td>
+                    <td data-label="セット3"><input type="number" name="exercise${index + 1}_set3" placeholder="重量 (kg)" id="exercise${index + 1}set3" inputmode="decimal"></td>
+                    <td data-label="セット4"><input type="number" name="exercise${index + 1}_set4" placeholder="重量 (kg)" id="exercise${index + 1}set4" inputmode="decimal"></td>
                 `;
                 tbody.appendChild(row);
             });
         }
+
+        updateExercises();
 
     function handleSubmit(event) {
         event.preventDefault();
