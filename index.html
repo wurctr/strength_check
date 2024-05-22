@@ -157,6 +157,13 @@
         </select>
     </div>
     <div class="form-group">
+        <label for="pattern">パターンを選択してください</label>
+        <select id="pattern" name="pattern" onchange="updateExercises()">
+            <option value="senior">上級生用</option>
+            <option value="junior">下級生用</option>
+        </select>
+    </div>
+    <div class="form-group">
         <label for="day">Dayを選択してください</label>
         <select id="day" name="day" onchange="updateExercises()">
             <option value="Day1">Day1</option>
@@ -188,21 +195,36 @@
     </form>
     <script>
         const exerciseData = {
-            Day1: ["HPCL(Hang)", "腸腰筋ストレッチ", "Dead Lift", "DB Burgulian SQ", "Chinning", "DB 1Hand Bench Press", "In&Out", "Side Raise"],
-            Day2: ["HPCL(Floor)", "腸腰筋ストレッチ", "BSQ", "Bench Pull", "Captain's Chair Leg Raise", "Hyper Extension", "DB 1Hand Row", "Twist Sit Up"],
-            Day3: ["RDL", "Reverse Lunge", "Scissors Jump", "Chinning Narrow", "Push Up", "Ab Roller", "Upright Row", ""]
+            senior: {
+                Day1: ["HPCL(Hang)", "腸腰筋ストレッチ", "Dead Lift", "DB Burgulian SQ", "Chinning", "DB 1Hand Bench Press", "In&Out", "Side Raise"],
+                Day2: ["HPCL(Floor)", "腸腰筋ストレッチ", "BSQ", "Bench Pull", "Captain's Chair Leg Raise", "Hyper Extension", "DB 1Hand Row", "Twist Sit Up"],
+                Day3: ["RDL", "Reverse Lunge", "Scissors Jump", "Chinning Narrow", "Push Up", "Ab Roller", "Upright Row", ""]
+            },
+            junior: {
+               Day1: ["HPCL(Hang)", "腸腰筋ストレッチ", "Dead Lift", "DB Burgulian SQ", "Chinning", "DB 1Hand Bench Press", "In&Out", "Side Raise"],
+                Day2: ["HPCL(Floor)", "腸腰筋ストレッチ", "BSQ", "Bench Pull", "Captain's Chair Leg Raise", "Hyper Extension", "DB 1Hand Row", "Twist Sit Up"],
+                Day3: ["RDL", "Reverse Lunge", "Scissors Jump", "Chinning Narrow", "Push Up", "Ab Roller", "Upright Row", ""]
+            }
         };
 
         const dayImages = {
-            Day1: "path_to_day1_image.jpg",
-            Day2: "path_to_day2_image.jpg",
-            Day3: "path_to_day3_image.jpg"
+            senior: {
+                Day1: "path_to_senior_day1_image.jpg",
+                Day2: "path_to_senior_day2_image.jpg",
+                Day3: "path_to_senior_day3_image.jpg"
+            },
+            junior: {
+                Day1: "path_to_junior_day1_image.jpg",
+                Day2: "path_to_junior_day2_image.jpg",
+                Day3: "path_to_junior_day3_image.jpg"
+            }
         };
 
         function updateExercises() {
+            const pattern = document.getElementById('pattern').value;
             const day = document.getElementById('day').value;
-            const exercises = exerciseData[day];
-            const dayImage = dayImages[day];
+            const exercises = exerciseData[pattern][day];
+            const dayImage = dayImages[pattern][day];
             const tbody = document.getElementById('exerciseTableBody');
             const imageElement = document.getElementById('dayImage');
             
