@@ -260,7 +260,7 @@
     }).then(response => response.text())
       .then(text => {
           if (text.includes('Success')) {
-              window.location.href = "thankyou.html"; // 送信完了ページにリダイレクト
+              window.location.href = "thank_you.html"; // 送信完了ページにリダイレクト
           } else {
               alert('送信に失敗しました: ' + text);
           }
