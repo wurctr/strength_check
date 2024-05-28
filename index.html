@@ -246,23 +246,8 @@
             });
         }
 
-         function handleSubmit(event) {
+function handleSubmit(event) {
     event.preventDefault();
-
-    // ポップアップ表示
-    const popup = document.createElement('div');
-    popup.id = 'popup';
-    popup.style.position = 'fixed';
-    popup.style.top = '50%';
-    popup.style.left = '50%';
-    popup.style.transform = 'translate(-50%, -50%)';
-    popup.style.padding = '20px';
-    popup.style.backgroundColor = '#fff';
-    popup.style.border = '1px solid #800020';
-    popup.style.boxShadow = '0px 0px 10px rgba(0, 0, 0, 0.1)';
-    popup.innerText = '送信中…';
-    document.body.appendChild(popup);
-
     const form = document.getElementById('trainingForm');
     const formData = new FormData(form);
     formData.set('name', document.getElementById('name').selectedOptions[0].text);
@@ -274,7 +259,6 @@
         body: formData
     }).then(response => response.text())
       .then(text => {
-          document.body.removeChild(popup); // ポップアップを削除
           if (text.includes('Success')) {
               window.location.href = "thank_you.html"; // 送信完了ページにリダイレクト
           } else {
@@ -282,10 +266,9 @@
           }
       })
       .catch(error => {
-          document.body.removeChild(popup); // ポップアップを削除
           console.error('Error:', error);
           alert('送信に失敗しました: ' + error.message);
-      })
+      });
 }
 
     updateExercises(); // 初期化
