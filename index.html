@@ -288,11 +288,6 @@
           console.error('Error:', error);
           alert('送信に失敗しました: ' + error.message);
       })
-      .finally(() => {
-          setTimeout(() => {
-              submitButton.disabled = false; // 5秒後に送信ボタンを再度有効化
-          }, 5000);
-      });
 }
 
     updateExercises(); // 初期化
