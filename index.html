@@ -237,10 +237,10 @@
     const row = document.createElement('tr');
     row.innerHTML = `
         <td data-label="種目"><input type="hidden" name="exercise${index + 1}_name" value="${exercise}">${exercise}</td>
-        <td data-label="セット1"><input type="text" name="exercise${index + 1}_set1" placeholder="重量 (kg)" pattern="[0-9().]*" inputmode="decimal"></td>
-        <td data-label="セット2"><input type="text" name="exercise${index + 1}_set2" placeholder="重量 (kg)" pattern="[0-9().]*" inputmode="decimal"></td>
-        <td data-label="セット3"><input type="text" name="exercise${index + 1}_set3" placeholder="重量 (kg)" pattern="[0-9().]*" inputmode="decimal"></td>
-        <td data-label="セット4"><input type="text" name="exercise${index + 1}_set4" placeholder="重量 (kg)" pattern="[0-9().]*" inputmode="decimal"></td>
+        <td data-label="セット1"><input type="text" name="exercise${index + 1}_set1" placeholder="重量 (kg)" pattern="[0-9().]*" inputmode="text"></td>
+        <td data-label="セット2"><input type="text" name="exercise${index + 1}_set2" placeholder="重量 (kg)" pattern="[0-9().]*" inputmode="text"></td>
+        <td data-label="セット3"><input type="text" name="exercise${index + 1}_set3" placeholder="重量 (kg)" pattern="[0-9().]*" inputmode="text"></td>
+        <td data-label="セット4"><input type="text" name="exercise${index + 1}_set4" placeholder="重量 (kg)" pattern="[0-9().]*" inputmode="text"></td>
     `;
     tbody.appendChild(row);
 });
