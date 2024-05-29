@@ -103,6 +103,26 @@
             display: block;
             margin-bottom: 20px;
         }
+       /* 送信ローダーの位置調整 */
+        .wpcf7 .wpcf7-spinner {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+}
+     .wpcf7-submit-block {
+    position: relative;
+    margin-bottom: 2em; /* 要調整 */
+}   
+    .wpcf7-submit-block input[type='submit'] {
+    min-width: 200px;
+}
+/* 送信ローダークリック時 */
+.wpcf7-submit.wpcf7-active {
+    pointer-events: none;
+    opacity: .5;
+}
     </style>
 </head>
 <body>
@@ -193,9 +213,9 @@
                 </tbody>
             </table>
         </div>
-        <div class="button-container">
-            <button type="submit">送信</button>
-        </div>
+        <div class="wpcf7-submit-block">
+    　　<button type="submit" id="submitButton">送信</button>
+　　　　　</div>
     </form>
     <script>
         const exerciseData = {
@@ -249,36 +269,50 @@
 });
         }
 
-    function handleSubmit(event) {
-    event.preventDefault();
-    const form = document.getElementById('trainingForm');
-    const submitButton = document.getElementById('submitButton');
-    const formData = new FormData(form);
-    formData.set('name', document.getElementById('name').selectedOptions[0].text);
-    formData.set('pattern', document.getElementById('pattern').selectedOptions[0].text);
-    formData.set('day', document.getElementById('day').selectedOptions[0].text);
+    document.addEventListener('DOMContentLoaded', function() {
+            const submitElement = document.getElementById('submitButton');
+            const submitValue = submitElement.textContent;
 
-    submitButton.textContent = '送信中...'; // 送信ボタンを押したらすぐに変更
+            submitElement.addEventListener('click', (ev) => {
+                submitElement.classList.add('wpcf7-active'); // 指定のクラスを付与する
+                submitElement.textContent = '送信中...'; // 送信中の文言
+            });
 
-    fetch(form.action, {
-        method: 'POST',
-        body: formData
-    }).then(response => response.text())
-      .then(text => {
-          if (text.includes('Success')) {
-              submitButton.textContent = '送信完了';
-              window.location.href = "thank_you.html"; // 送信完了ページにリダイレクト
-          } else {
-              submitButton.textContent = '送信';
-              alert('送信に失敗しました: ' + text);
-          }
-      })
-      .catch(error => {
-          submitButton.textContent = '送信';
-          console.error('Error:', error);
-          alert('送信に失敗しました: ' + error.message);
-      });
-}
+            document.addEventListener('wpcf7submit', (ev) => { // Ajaxのフォーム送信が完了した場合（成功・失敗問わず）
+                submitElement.classList.remove('wpcf7-active'); // 指定のクラスを外す
+                submitElement.textContent = submitValue;
+            });
+        });
+
+        function handleSubmit(event) {
+            event.preventDefault();
+            const form = document.getElementById('trainingForm');
+            const submitButton = document.getElementById('submitButton');
+            const formData = new FormData(form);
+            formData.set('name', document.getElementById('name').selectedOptions[0].text);
+            formData.set('pattern', document.getElementById('pattern').selectedOptions[0].text);
+            formData.set('day', document.getElementById('day').selectedOptions[0].text);
+
+            submitButton.textContent = '送信中...'; // 送信ボタンを押したらすぐに変更
+
+            fetch(form.action, {
+                method: 'POST',
+                body: formData
+            }).then(response => response.text())
+              .then(text => {
+                  if (text.includes('Success')) {
+                      submitButton.textContent = '送信完了';
+                  } else {
+                      submitButton.textContent = '送信';
+                      alert('送信に失敗しました: ' + text);
+                  }
+              })
+              .catch(error => {
+                  submitButton.textContent = '送信';
+                  console.error('Error:', error);
+                  alert('送信に失敗しました: ' + error.message);
+              });
+        }
         
     updateExercises(); // 初期化
 </script>
