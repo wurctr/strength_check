@@ -250,35 +250,35 @@
         }
 
     function handleSubmit(event) {
-        event.preventDefault();
-        const form = document.getElementById('trainingForm');
-        const submitButton = document.getElementById('submitButton');
-        const formData = new FormData(form);
-        formData.set('name', document.getElementById('name').selectedOptions[0].text);
-        formData.set('pattern', document.getElementById('pattern').selectedOptions[0].text);
-        formData.set('day', document.getElementById('day').selectedOptions[0].text);
+    event.preventDefault();
+    const form = document.getElementById('trainingForm');
+    const submitButton = document.getElementById('submitButton');
+    const formData = new FormData(form);
+    formData.set('name', document.getElementById('name').selectedOptions[0].text);
+    formData.set('pattern', document.getElementById('pattern').selectedOptions[0].text);
+    formData.set('day', document.getElementById('day').selectedOptions[0].text);
 
-        submitButton.textContent = '送信中...';
+    submitButton.textContent = '送信中...'; // 送信ボタンを押したらすぐに変更
 
-        fetch(form.action, {
-            method: 'POST',
-            body: formData
-        }).then(response => response.text())
-          .then(text => {
-              if (text.includes('Success')) {
-                  submitButton.textContent = '送信完了';
-                  window.location.href = "thank_you.html"; // 送信完了ページにリダイレクト
-              } else {
-                  submitButton.textContent = '送信';
-                  alert('送信に失敗しました: ' + text);
-              }
-          })
-          .catch(error => {
+    fetch(form.action, {
+        method: 'POST',
+        body: formData
+    }).then(response => response.text())
+      .then(text => {
+          if (text.includes('Success')) {
+              submitButton.textContent = '送信完了';
+              window.location.href = "thank_you.html"; // 送信完了ページにリダイレクト
+          } else {
               submitButton.textContent = '送信';
-              console.error('Error:', error);
-              alert('送信に失敗しました: ' + error.message);
-          });
-    }
+              alert('送信に失敗しました: ' + text);
+          }
+      })
+      .catch(error => {
+          submitButton.textContent = '送信';
+          console.error('Error:', error);
+          alert('送信に失敗しました: ' + error.message);
+      });
+}
         
     updateExercises(); // 初期化
 </script>
