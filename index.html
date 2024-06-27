@@ -180,8 +180,8 @@
     <div class="form-group">
         <label for="pattern">パターンを選択してください</label>
         <select id="pattern" name="pattern" onchange="updateExercises()">
-            <option value="senior">上級生用23-24m5</option>
-            <option value="junior">下級生用23-24m5</option>
+            <option value="senior">上級生用23-24m6</option>
+            <option value="junior">未経験用23-24m6</option>
         </select>
     </div>
     <div class="form-group">
@@ -189,7 +189,6 @@
         <select id="day" name="day" onchange="updateExercises()">
             <option value="Day1">Day1</option>
             <option value="Day2">Day2</option>
-            <option value="Day3">Day3</option>
         </select>
     </div>
      <img src="" alt="Day Image" id="dayImage" class="day-image">
@@ -220,27 +219,23 @@
     <script>
         const exerciseData = {
             senior: {
-                Day1: ["HPCL(Hang)", "腸腰筋ストレッチ", "Dead Lift", "DB Burgulian SQ", "Chinning", "DB 1Hand Bench Press", "In&Out", "Side Raise"],
-                Day2: ["HPCL(Floor)", "腸腰筋ストレッチ", "BSQ", "Bench Pull", "Captain's Chair Leg Raise", "Hyper Extension", "DB 1Hand Row", "Twist Sit Up"],
-                Day3: ["RDL", "Reverse Lunge", "Scissors Jump", "Chinning Narrow", "Push Up", "Ab Roller", "Upright Row"]
+                Day1: ["HPCL(Hang)", "HPCL(Floor)", "Dead Lift", "DB Front Lunge", "Bench Pull", "Push Up", "In&Out", "Lying Side Bend"],
+                Day2: ["BSQ", "Chinning", "Captain's Chair Leg Raise", "RDL", "DB 1Hand Row", "DB 1Hand Bench Press"]
             },
             junior: {
-               Day1: ["HPCL(Hang)", "腸腰筋ストレッチ", "Dead Lift", "DB Burgulian SQ", "Chinning", "DB 1Hand Bench Press", "In&Out", "Side Raise"],
-                Day2: ["HPCL(Floor)", "腸腰筋ストレッチ", "BSQ", "Bench Pull", "Captain's Chair Leg Raise", "Hyper Extension", "DB 1Hand Row", "Twist Sit Up"],
-                Day3: ["RDL", "Reverse Lunge", "Scissors Jump", "Chinning Narrow", "Push Up", "Ab Roller", "Upright Row"]
+               Day1: ["HPCL(Hang)", "HPCL(Floor)", "Dead Lift", "DB Front Lunge", "Bench Pull", "Push Up", "In&Out", "Lying Side Bend"],
+               Day2: ["BSQ", "Chinning", "Captain's Chair Leg Raise", "RDL", "DB 1Hand Row", "DB 1Hand Bench Press"]
             }
         };
 
         const dayImages = {
             senior: {
-                Day1: "Day1_senior.jpg",
-                Day2: "Day2_senior.jpg",
-                Day3: "Day3_senior.jpg"
+                Day1: "232406_D1_S.png",
+                Day2: "232406_D2_S.png"
             },
             junior: {
-                Day1: "Day1_junior.jpg",
-                Day2: "Day2_junior.jpg",
-                Day3: "Day3_junior.jpg"
+                Day1: "232406_D1_J.png",
+                Day2: "232406_D2_J.png"
             }
         };
 
