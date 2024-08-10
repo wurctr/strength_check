@@ -181,8 +181,7 @@
     <div class="form-group">
         <label for="pattern">パターンを選択してください</label>
         <select id="pattern" name="pattern" onchange="updateExercises()">
-            <option value="senior">上級生用23-24m6</option>
-            <option value="junior">未経験用23-24m6</option>
+            <option value="senior">23-24m7</option>
         </select>
     </div>
     <div class="form-group">
@@ -190,6 +189,7 @@
         <select id="day" name="day" onchange="updateExercises()">
             <option value="Day1">Day1</option>
             <option value="Day2">Day2</option>
+            <option value="Day3">Day3</option>
         </select>
     </div>
      <img src="" alt="Day Image" id="dayImage" class="day-image">
@@ -220,23 +220,17 @@
     <script>
         const exerciseData = {
             senior: {
-                Day1: ["HPCL(Hang)", "HPCL(Floor)", "Dead Lift", "DB Front Lunge", "Bench Pull", "Push Up", "In&Out", "Lying Side Bend"],
-                Day2: ["BSQ", "Chinning", "Captain's Chair Leg Raise", "RDL", "DB 1Hand Row", "DB 1Hand Bench Press"]
-            },
-            junior: {
-               Day1: ["HPCL(Hang)", "HPCL(Floor)", "Dead Lift", "DB Front Lunge", "Bench Pull", "Push Up", "In&Out", "Lying Side Bend"],
-               Day2: ["BSQ", "Chinning", "Captain's Chair Leg Raise", "RDL", "DB 1Hand Row", "DB 1Hand Bench Press"]
+                Day1: ["HPCL(Floor)", "Dead Lift", "Bench Pull", "Push Up"],
+                Day2: ["HPCL(Floor)", "BSQ", "Chinning", "Push Up"],
+                Day3: ["HPCL(Hang)", "RDL"]
             }
         };
 
         const dayImages = {
             senior: {
-                Day1: "232406_D1_S.png",
-                Day2: "232406_D2_S.png"
-            },
-            junior: {
-                Day1: "232406_D1_J.png",
-                Day2: "232406_D2_J.png"
+                Day1: "202408_D1.png",
+                Day2: "202408_D2.png",
+                Day3: "202408_D3.png"
             }
         };
 
