@@ -130,16 +130,6 @@
 　　<div class="form-group">
         <label for="name">名前を選択してください</label>
         <select id="name" name="name">
-            <option value="024001. 青木 洋樹 HIROKI AOKI">024001. 青木 洋樹 HIROKI AOKI</option>
-            <option value="025001. 上路 達也 TATSUYA UEJI">025001. 上路 達也 TATSUYA UEJI</option>
-            <option value="025002. 榎本 拓海 TAKUMI ENOMOTO">025002. 榎本 拓海 TAKUMI ENOMOTO</option>
-            <option value="025003. 沢木 優介 YUSUKE SAWAKI">025003. 沢木 優介 YUSUKE SAWAKI</option>
-            <option value="025004. 谷口 俊之輔 SHUNNOSUKE TANIGUCHI">025004. 谷口 俊之輔 SHUNNOSUKE TANIGUCHI</option>
-            <option value="025005. 柘植 充 MITSURU TSUGE">025005. 柘植 充 MITSURU TSUGE</option>
-            <option value="025006. 遠矢 陸人 RIKUTO TOYA">025006. 遠矢 陸人 RIKUTO TOYA</option>
-            <option value="025007. 中舛 蒼士 SOUSHI NAKAMASU">025007. 中舛 蒼士 SOUSHI NAKAMASU</option>
-            <option value="025008. 松並 大智 DAICHI MATSUNAMI">025008. 松並 大智 DAICHI MATSUNAMI</option>
-            <option value="025009. 丸山 渓太 KEITA MARUYAMA">025009. 丸山 渓太 KEITA MARUYAMA</option>
             <option value="026001. 岡山 凜之 RINSHI OKAYAMA">026001. 岡山 凜之 RINSHI OKAYAMA</option>
             <option value="026002. 亀田 純一郎 JUNICHIROU KAMEDA">026002. 亀田 純一郎 JUNICHIROU KAMEDA</option>
             <option value="026003. 小山 知起 TOMOKI KOYAMA">026003. 小山 知起 TOMOKI KOYAMA</option>
@@ -147,7 +137,6 @@
             <option value="026005. 沢目 真直 MASANAO SAWAME">026005. 沢目 真直 MASANAO SAWAME</option>
             <option value="026006. 原田 燿輔 YOUSUKE HARADA">026006. 原田 燿輔 YOUSUKE HARADA</option>
             <option value="026007. 滿園 脩吾 SYUGO MITSUZONO">026007. 滿園 脩吾 SYUGO MITSUZONO</option>
-            <option value="026008. 東島 快 KAI HIGASHIJIMA">026008. 東島 快 KAI HIGASHIJIMA</option>
             <option value="027001. 川上 拓海 TAKUMI KAWAKAMI">027001. 川上 拓海 TAKUMI KAWAKAMI</option>
             <option value="027002. 佐藤 淳平 JUNPEI SATOU">027002. 佐藤 淳平 JUNPEI SATOU</option>
             <option value="027003. 向井 大貴 DAIKI MUKAI">027003. 向井 大貴 DAIKI MUKAI</option>
@@ -161,15 +150,12 @@
             <option value="028009. 林田 颯月 SATSUKI HAYASHIDA">028009. 林田 颯月 SATSUKI HAYASHIDA</option>
             <option value="028010. 宮澤 光樹 KOKI MIYAZAWA">028010. 宮澤 光樹 KOKI MIYAZAWA</option>
             <option value="028011. 宮城島 啓太 KEITA MIYAGISHIMA">028011. 宮城島 啓太 KEITA MIYAGISHIMA</option>
-            <option value="025101. 猪野 日向子 HINAKO INO">025101. 猪野 日向子 HINAKO INO</option>
-            <option value="025102. 片上 日菜子 HINAKO KATAKAMI">025102. 片上 日菜子 HINAKO KATAKAMI</option>
             <option value="026101. 加藤 真奈 MANA KATOU">026101. 加藤 真奈 MANA KATOU</option>
             <option value="026102. 村田友佳 TOMOKA MURATA">026102. 村田友佳 TOMOKA MURATA</option>
             <option value="026103. 横田 紗弥 SAYA YOKOTA">026103. 横田 紗弥 SAYA YOKOTA</option>
             <option value="026105. 吉田 紗英 SAE YOSHIDA">026105. 吉田 紗英 SAE YOSHIDA</option>
             <option value="026106. 矢野 文愛 AYAME YANO">026106. 矢野 文愛 AYAME YANO</option>
             <option value="027101. 緒方 美奈 MINA OGATA">027101. 緒方 美奈 MINA OGATA</option>
-            <option value="027102. 岡本 心奈 KOKONA OKAMOTO">027102. 岡本 心奈 KOKONA OKAMOTO</option>
             <option value="027103. 小野 紗耶果 SAYAKA ONO">027103. 小野 紗耶果 SAYAKA ONO</option>
             <option value="027104. 近藤 果凜 KARIN KONDO">027104. 近藤 果凜 KARIN KONDO</option>
             <option value="027105. 藤倉 望妃 MIKI FUJIKURA">027105. 藤倉 望妃 MIKI FUJIKURA</option>
@@ -181,7 +167,8 @@
     <div class="form-group">
         <label for="pattern">パターンを選択してください</label>
         <select id="pattern" name="pattern" onchange="updateExercises()">
-            <option value="senior">23-24m7</option>
+            <option value="senior">24-25m0_３年生用</option>
+            <option value="junior">24-25m0_新人戦クルー用</option>
         </select>
     </div>
     <div class="form-group">
@@ -220,6 +207,11 @@
     <script>
         const exerciseData = {
             senior: {
+                Day1: ["HPCL(Hang)", "Dead Lift", "Bench Pull", "Push Up", "DB Front Lunge", "Chinning", "DB Side Raise"],
+                Day2: ["HPCL(Hang)", "FSQ", "Narrow Pull Up", "Over Head Press"],
+                Day3: ["HPCL(Hang)", "RDL", "Bench Pull", "Push Up", "Reverse Lunge", "DB Bent Over Row", "DB Side Raise"]
+            },
+            junior: {
                 Day1: ["HPCL(Floor)", "Dead Lift", "Bench Pull", "Push Up"],
                 Day2: ["HPCL(Floor)", "BSQ", "Chinning", "Push Up"],
                 Day3: ["HPCL(Hang)", "RDL"]
@@ -228,9 +220,14 @@
 
         const dayImages = {
             senior: {
-                Day1: "202408_D1.png",
-                Day2: "202408_D2.png",
-                Day3: "202408_D3.png"
+                Day1: "24-25_m0_D1_S.png",
+                Day2: "24-25_m0_D2_S.png",
+                Day3: "24-25_m0_D3_S.png"
+            },
+            junior: {
+                Day1: "24-25_m0_D1_J.png",
+                Day2: "24-25_m0_D1_J.png",
+                Day3: "24-25_m0_D1_J.png"
             }
         };
 
